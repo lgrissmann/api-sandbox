@@ -2,8 +2,8 @@ Simple Maven Spring Boot RESTful API
 
 # Steps
 
-1. [x] Create a Spring Boot;
-1. [ ] Enable Spring Boot Actuator;
+1. [x] Create a Spring Boot Project;
+1. [x] Enable Spring Boot Actuator;
 1. [ ] Create first controller;
 1. [ ] Add Swagger documentation;
 1. [ ] Dockerize the application;
@@ -46,3 +46,30 @@ $ mvn compile
 ```
 
 Done.
+
+## Enable Spring Boot Actuator
+
+Add this dependency to your `pom.xml`
+
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+```
+
+Compile and run
+```shell
+$ mvn clean package
+...
+[INFO] BUILD SUCCESS
+...
+
+$ java -jar target/sandbox-0.0.1-SNAPSHOT.jar
+...
+```
+Go to `http://localhost:8080/actuator/health`
+
+If you see `{"status":"UP"}`, congratulations!
+
+More about the Actuator: https://spring.io/guides/gs/actuator-service/
