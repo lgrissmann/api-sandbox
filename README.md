@@ -1,55 +1,51 @@
-Simple Maven Spring Boot RESTful API
+# API RESTful com Spring Boot e Swagger
 
-# Steps
+# Passos
 
-1. [x] Create a Spring Boot Project;
-1. [x] Enable Spring Boot Actuator;
-1. [ ] Create first controller;
-1. [ ] Add Swagger documentation;
-1. [ ] Dockerize the application;
+1. [x] Criar o Projeto;
+1. [x] Habilitar o Spring Boot Actuator;
+1. [ ] Criar o primeiro serviço (Controller);
+1. [ ] Adicionar a documentação com o Swagger;
+1. [ ] Empacotar tudo em uma imagem docker;
 
-## Create a Spring Boot project
+## Criando o Projeto
 
 Go to https://start.spring.io
 
-#### Project   
-[x] Maven Project
+Aqui vamos utilizar o Maven e o Java 11, mas fique a vontade para selecionar o que você tiver mais afinidade, ou facilidade.
 
-#### Language  
-[x] Java
+> Project: [x] Maven Project   
+> Language: [x] Java   
+> Spring Boot: [x] 2.3.4   
+> Packaging: [x] Jar   
 
-#### Spring Boot  
-[x] 2.3.4
-
-#### Packaging  
-[x] Jar
-
-#### Dependencies   
-+ Spring Web
-
-Complete the "Project Metadata" as you wish. 
-
+Preencha os metadados do projeto da forma que achar melhor. 
+No meu caso foi: 
 
 > Group: br.com.rissmann.api   
 > Artifact: sandbox    
 > Name: sandbox   
 > Package name: br.com.rissmann.api.sandbox   
 
-Click "GENERATE". Download and unzip the project.   
+**Adicione como dependência o `Spring Web`.**
 
-Go to the project folder and compile the application.
+
+Clique em "GENERATE". Faça o download e descompacte o projeto.
+Em seguida, entre na pasta do projeto e compile tudo.
+
 ```shell
-$ mvn compile
+$ unzip sandox.zip
+$ cd sandbox
+sandbox> $ mvn compile
 ...
 [INFO] BUILD SUCCESS
 ...
 ```
+Pronto. Agora você tem um projeto Spring Boot.
 
-Done.
+## Habilitar o Spring Boot Actuator
 
-## Enable Spring Boot Actuator
-
-Add this dependency to your `pom.xml`
+Adicione a seguinte dependência ao seu `pom.xml`
 
 ```xml
 <dependency>
@@ -58,18 +54,26 @@ Add this dependency to your `pom.xml`
 </dependency>
 ```
 
-Compile and run
+Em seguida execute os comandos para limpar e empacotar:
 ```shell
-$ mvn clean package
+sandbox> $ mvn clean package
 ...
 [INFO] BUILD SUCCESS
 ...
+```
 
-$ java -jar target/sandbox-0.0.1-SNAPSHOT.jar
+Pronto. 
+
+Para testar, rode a aplicação:
+```
+sandbox> $ java -jar target/sandbox-0.0.1-SNAPSHOT.jar
 ...
 ```
-Go to `http://localhost:8080/actuator/health`
+Abra o seguinte endereço no seu browser:   
+ `http://localhost:8080/actuator/health`
 
-If you see `{"status":"UP"}`, congratulations!
+Você verá `{"status":"UP"}`. 
 
-More about the Actuator: https://spring.io/guides/gs/actuator-service/
+Parabéns. Agora você tem um projeto Spring Boot pronto para imaplantação em ambiente de produção.
+
+Para saber mais sobre o Spring Boot Actuator visite https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready
