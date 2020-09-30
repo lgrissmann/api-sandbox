@@ -1,23 +1,26 @@
 # API RESTful com Spring Boot e Swagger
 
+[[_TOC_]]
+
 # Passos
 
-1. [x] Criar o Projeto;
-1. [x] Habilitar o Spring Boot Actuator;
-1. [ ] Criar o primeiro serviço (Controller);
-1. [ ] Adicionar a documentação com o Swagger;
-1. [ ] Empacotar tudo em uma imagem docker;
+1. Criar o Projeto;
+1. Habilitar o Spring Boot Actuator;
+1. Criar o primeiro serviço (Controller);
+1. Adicionar a documentação com o Swagger;
+1. Empacotar tudo em uma imagem docker;
 
 ## Criando o Projeto
 
-Go to https://start.spring.io
+Acesse [Spring Initializr](https://start.spring.io)
 
-Aqui vamos utilizar o Maven e o Java 11, mas fique a vontade para selecionar o que você tiver mais afinidade, ou facilidade.
+Fique a vontade para selecionar o que você tiver mais afinidade, ou facilidade.
 
 > Project: [x] Maven Project   
 > Language: [x] Java   
 > Spring Boot: [x] 2.3.4   
 > Packaging: [x] Jar   
+> Java: [x] 11
 
 Preencha os metadados do projeto da forma que achar melhor. 
 No meu caso foi: 
@@ -43,15 +46,15 @@ sandbox> $ mvn compile
 ```
 Pronto. Agora você tem um projeto Spring Boot.
 
-## Habilitar o Spring Boot Actuator
+## Habilitando o Spring Boot Actuator
 
 Adicione a seguinte dependência ao seu `pom.xml`
 
 ```xml
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-actuator</artifactId>
-</dependency>
++ <dependency>
++     <groupId>org.springframework.boot</groupId>
++     <artifactId>spring-boot-starter-actuator</artifactId>
++ </dependency>
 ```
 
 Em seguida execute os comandos para limpar e empacotar:
@@ -65,15 +68,22 @@ sandbox> $ mvn clean package
 Pronto. 
 
 Para testar, rode a aplicação:
-```
+```shell
 sandbox> $ java -jar target/sandbox-0.0.1-SNAPSHOT.jar
-...
 ```
 Abra o seguinte endereço no seu browser:   
- `http://localhost:8080/actuator/health`
+ [http://localhost:8080/actuator/health](http://localhost:8080/actuator/health)
 
 Você verá `{"status":"UP"}`. 
 
 Parabéns. Agora você tem um projeto Spring Boot pronto para imaplantação em ambiente de produção.
 
-Para saber mais sobre o Spring Boot Actuator visite https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready
+## Criando o primeiro serviço (Controller)
+TODO
+
+## Adicionando a documentação com o Swagger
+TODO
+
+## Empacotando tudo em uma imagem docker
+TODO
+
